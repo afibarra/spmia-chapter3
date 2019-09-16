@@ -1,9 +1,9 @@
-version: '2'
+version: '3'
 services:
   configserver:
     image: johncarnell/tmx-confsvr:chapter3
     ports:
-       - "8888:8888"
+      - "8888:8888"
     environment:
       ENCRYPT_KEY:       "IMSYMMETRIC"
   database:
@@ -24,3 +24,4 @@ services:
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY:       "IMSYMMETRIC"
+    depends_on: [configserver, database]
